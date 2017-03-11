@@ -28,6 +28,8 @@ definitions:
         description: ACI measures can belong to the transition measure set. Quality measures can belong to multiple measure sets that represent different specialties.
         type: array
         items: { $ref: #/definitions/measureSets }
+      benchmark:
+        type: { $ref: #/definitions/benchmark }
     required: [measureId, title, description, category, metricType, firstPerformanceYear, lastPerformanceYear]
     oneOf:
       - { $ref: #/definitions/iaMeasure }
@@ -113,6 +115,23 @@ definitions:
         type: array
         items: { $ref: #/definitions/methods }
     required: [nationalQualityCode, measureType, eMeasureId, nqfEMeasureId, nqfId, qualityId, isHighPriority, isInverse, overallAlgorithm, strata, primarySteward, measureSets]
+
+  benchmark:
+    type: object
+    properties:
+      measureId:
+        description: Corresponds to measure object's measureId. In historical data set, corresponds to qualityId.
+        type: string
+      performanceYear: { type: string }
+      benchmarkYear: { type: string }
+      deciles:
+        type: array
+        items:
+          type: array
+          items: { type: ['null', number] }
+      submissionMethod:
+        enum: [claims, registry, qcdrOrQualifiedRegistry, cmsWebInterface, administrativeClaims, ehr, cmsApprovedCAHPSVendor]
+      required: [measureId, performanceYear, benchmarkYear, submissionMethod, deciles]
 
   subcategoryIds:
     enum:
