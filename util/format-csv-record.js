@@ -35,8 +35,10 @@ var formatDecileGenerator   = require('./format-decile-generator');
 var formatCsvRecord = function formatCsvRecord(record, options) {
   var measure = QUALITY_ID_TO_MEASURE_MAP[record.qualityId];
 
-  // NOTE: Some of the benchmarks don't correspond to
-  // any of the measures currently in our json.
+  /**
+   * NOTE: Some of the benchmarks don't correspond to
+   * any of the measures currently in our json.
+   */
   if (!measure) return;
 
   return {
@@ -44,11 +46,14 @@ var formatCsvRecord = function formatCsvRecord(record, options) {
     benchmarkYear: options.benchmarkYear,
     performanceYear: options.performanceYear,
     submissionMethod: formatSubmissionMethod(record.submissionMethod),
-    // NOTE: Deciles are offset by one because they use the lower bound
-    // of the next decile to determine the exclusive upper bound of the
-    // current decile.
-    // 2016 benchmarks do not have decile 1 or decile 2 information.
-    // Decile 2 exclusive upper bound is implied from the lower bound of decile 3.
+    /**
+     * NOTE: Deciles are offset by one because they use the lower bound
+     * of the next decile to determine the exclusive upper bound of
+     * the current decile.
+     * 2016 benchmarks do not have decile 1 or decile 2 information.
+     * Decile 2 exclusive upper bound is implied from the
+     * inclusive lower bound of decile 3.
+     */
     deciles: [
       null,
       record.decile3,
