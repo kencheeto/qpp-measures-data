@@ -2,9 +2,7 @@
   "name": "qpp-measures-data",
   "version": "0.0.20",
   "description": "Quality Payment Program Measures Data Repository",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/CMSgov/qpp-measures-data.git"
+  "repository": "kencheeto/qpp-measures-data.git"
   },
   "main": "index.js",
   "scripts": {
