@@ -2,7 +2,7 @@
   "name": "qpp-measures-data",
   "version": "0.0.20",
   "description": "Quality Payment Program Measures Data Repository",
-  "repository": "kencheeto/qpp-measures-data.git"
+  "repository": "kencheeto/qpp-measures-data.git",
   },
   "main": "index.js",
   "scripts": {
