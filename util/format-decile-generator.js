@@ -64,7 +64,7 @@ var formatDecileGenerator = function formatDecileGenerator(record) {
       while (!nextDecileRange && nextIndex < array.length) {
         nextIndex++;
         nextDecile = array[nextIndex];
-        nextDecileRange = typeof nextDecile === 'string' ? nextDecile.match(/([0-9]*[.]?[0-9]+)/g) : null;
+        nextDecileRange = nextDecile ? nextDecile.match(/([0-9]*[.]?[0-9]+)/g) : null;
       }
 
       if (nextDecileRange) return parseFloat(nextDecileRange[0]);
