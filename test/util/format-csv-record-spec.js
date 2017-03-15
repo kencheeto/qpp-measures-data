@@ -11,7 +11,7 @@ var options = {
 
 describe('formatCsvRecord', function() {
   describe('When qualityId of the record does NOT correspond to a measure', function() {
-    it('should return undefined', function() {
+    it('should return a benchmark without a measureId', function() {
       // USWR 1800 is not a real qualityID, but the other properties are from real benchmark USWR 18.
       var record = {
         measureName: 'Complications or Side Effects among patients undergoing Treatment with HBOT',
@@ -31,7 +31,7 @@ describe('formatCsvRecord', function() {
       };
       var benchmark = formatCsvRecord(record, options);
 
-      expect(benchmark).to.be.undefined;
+      expect(benchmark.measureId).to.be.undefined;
     });
   });
 
