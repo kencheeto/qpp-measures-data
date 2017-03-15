@@ -2,7 +2,7 @@
   "name": "qpp-measures-data",
   "version": "0.0.20",
   "description": "Quality Payment Program Measures Data Repository",
-  "repository": "kencheeto/qpp-measures-data.git",
+  "repository": "github:kencheeto/qpp-measures-data",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/_mocha --colors"
